@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Portafolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:#050816;
+color:white;
+overflow-x:hidden;
+
+}
+
+/*============================
+FONDO ANIMADO
+============================*/
+
+#bg{
+position:fixed;
+width:100%;
+height:100%;
+left:0;
+top:0;
+z-index:-1;
+background:
+radial-gradient(circle at top,#20295a,#050816 70%);
+overflow:hidden;
+}
+
+.circle{
+
+position:absolute;
+border-radius:50%;
+background:rgba(0,255,255,.08);
+animation:float linear infinite;
+
+}
+
+@keyframes float{
+
+from{
+transform:translateY(110vh) scale(.2);
+}
+
+to{
+transform:translateY(-20vh) scale(1.3);
+}
+
+}
+
+/*============================*/
+
+nav{
+
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:20px;
+padding:15px 35px;
+
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:50px;
+z-index:100;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#00ffff;
+
+}
+
+section{
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:120px 8%;
+
+}
+
+.panel{
+
+width:100%;
+max-width:1200px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.1);
+
+border-radius:25px;
+
+padding:50px;
+
+animation:fadeUp 1s;
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+h1{
+
+font-size:60px;
+
+margin-bottom:20px;
+
+}
+
+h2{
+
+font-size:40px;
+
+margin-bottom:35px;
+
+color:#00ffff;
+
+}
+
+p{
+
+line-height:1.8;
+
+color:#ddd;
+
+}
+
+/*============================
+INICIO
+============================*/
+
+.hero{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:60px;
+
+flex-wrap:wrap;
+
+}
+
+.hero img{
+
+width:320px;
+
+border-radius:50%;
+
+border:5px solid #00ffff;
+
+box-shadow:0 0 50px cyan;
+
+animation:pulse 3s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 20px cyan;
+}
+
+50%{
+box-shadow:0 0 70px cyan;
+}
+
+100%{
+box-shadow:0 0 20px cyan;
+}
+
+}
+
+/*============================
+Proyectos
+============================*/
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.07);
+
+border-radius:20px;
+
+overflow:hidden;
+
+transition:.4s;
+
+cursor:pointer;
+
+}
+
+.card:hover{
+
+transform:translateY(-15px) scale(1.02);
+
+box-shadow:0 20px 40px rgba(0,255,255,.3);
+
+}
+
+.card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+}
+
+.card-content{
+
+padding:25px;
+
+}
+
+.card h3{
+
+margin-bottom:10px;
+
+}
+
+/*============================
+GALERÍA CHIDA
+============================*/
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.photo-card{
+background:rgba(255,255,255,.06);
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.05);
+transition:.3s ease;
+}
+
+.photo-card:hover{
+transform:scale(1.03);
+border-color:rgba(0,255,255,.3);
+}
+
+.photo-card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.photo-info{
+padding:20px;
+}
+
+.photo-info h3{
+font-size:20px;
+margin-bottom:8px;
+color:white;
+}
+
+.photo-info p{
+font-size:14px;
+color:#bbb;
+margin-bottom:12px;
+}
+
+.rating{
+color:#00ffff;
+font-size:18px;
+text-shadow:0 0 10px rgba(0,255,255,.5);
+}
+
+/*============================
+SOCIALES
+============================*/
+
+.socials{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+.social{
+
+padding:18px 35px;
+
+border-radius:50px;
+
+background:#00ffff;
+
+color:#000;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.social:hover{
+
+transform:translateY(-5px);
+
+}
+
+/*============================
+GALERÍA
+============================*/
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+margin-top:30px;
+
+}
+
+.photo-card{
+
+background:rgba(255,255,255,.07);
+
+border-radius:20px;
+
+overflow:hidden;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.4s;
+
+}
+
+.photo-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 20px 40px rgba(0,255,255,.25);
+
+}
+
+.photo-card img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+display:block;
+
+transition:.4s;
+
+}
+
+.photo-card:hover img{
+
+transform:scale(1.05);
+
+}
+
+.photo-info{
+
+padding:20px;
+
+}
+
+.photo-info h3{
+
+margin-bottom:10px;
+
+color:#00ffff;
+
+}
+
+.photo-info p{
+
+font-size:15px;
+
+margin-bottom:15px;
+
+}
+
+.rating{
+
+font-size:24px;
+
+color:gold;
+
+letter-spacing:3px;
+
+text-align:center;
+
+}
+
+/*============================*/
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+color:#999;
+
+}
+
+/*============================*/
+
+@media(max-width:900px){
+
+h1{
+
+font-size:45px;
+
+}
+
+.hero{
+
+justify-content:center;
+text-align:center;
+
+}
+
+.hero img{
+
+width:220px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="bg"></div>
+
+<nav>
+
+<a href="#inicio">Inicio</a>
+
+<a href="#proyectos">Proyectos</a>
+
+<a href="#galeria">Galería</a>
+
+<a href="#sobre">Sobre mí</a>
+
+<a href="#redes">Social</a>
+
+</nav>
+
+<section id="inicio">
+
+<div class="panel hero">
+
+<div>
+
+<h1>¡Bienvenido!</h1>
+
+<p>
+Mi sitio web. Aquí verás proyectos, mis redes sociales y datos sobre mí.
+Este sitio fue creado con el apoyo de la IA. En el futuro haré mis propias
+páginas web. :3
+</p>
+
+</div>
+
+<img src="foto.jpeg" alt="Mi Foto">
+
+</div>
+
+</section>
+
+<section id="proyectos">
+
+<div class="panel">
+
+<h2>Mis Proyectos</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<img src="Servidor.jpg" alt="Mi Foto">
+
+<div class="card-content">
+
+<h3>"Servidor entre dos equipos"</h3>
+
+<p>
+
+Aprendi Conenctar mediante dos cables cat dos Computadoras
+Actando como un servidor, para tranferir datos entre ellas
+("La imagen es una Referencia") 
+
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="Cable cat.jpg" alt="Mi Foto">
+
+<div class="card-content">
+
+<h3>Pelar y Ponchar un Cable Cat</h3>
+
+<p>
+
+Nos enseñaron a pelar y ponchar un cable cat, correctamente
+no solo pelar debemos de acomodar los cables en un orden de 
+colores. (Imagen de Referencia)
+
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="Mascara.jpg" alt="Mi Foto">
+
+<div class="card-content">
+
+<h3>Calcular una Subred</h3>
+
+<p>
+
+Calculamos una Mascara de Subred mediante una herramienta
+una calculadora que calcula la ip y la Mascara de sub red
+esto nos ayudara a calibrar antenas (Imagen de Referencia)
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="galeria">
+
+<div class="panel">
+
+<h2>Galería</h2>
+
+<p style="margin-bottom:35px;">
+Aquí compartiré fotografías de mis viajes, prácticas y momentos importantes.
+</p>
+
+<div class="gallery">
+
+<div class="photo-card">
+
+<img src="La fundidora2.jpg" alt="Imagen 1">
+
+<div class="photo-info">
+
+<h3>"Parque Fundidora""</h3>
+
+<p>fue la sede de la Compañía Fundidora de Fierro y Acero de Monterrey, fundada en 1900.cierre en 1986, el espacio fue transformado en un gran museo de sitio y parque público, preservando su arquitectura industrial como patrimonio cultural de la ciudad.</p>
+
+<div class="rating">★★★★★</div>
+
+</div>
+
+</div>
+
+<div class="photo-card">
+
+<img src="Silla.jpg" alt="Imagen 2">
+
+<div class="photo-info">
+
+<h3>"El Cerro de la Silla"</h3>
+
+<p>Alberto del Canto bautizó el cerro en el siglo XVI debido a su perfil que recuerda a una silla de montar ecuestre</p>
+
+<div class="rating">★★★★★</div>
+
+</div>
+
+</div>
+
+<div class="photo-card">
+
+<img src="Tomazopo.jpg" alt="Imagen 3">
+
+<div class="photo-info">
+
+<h3>"Cascada de Tamasopo"</h3>
+
+<p>El término "Tamasopo" proviene del vocablo huasteco tének Tamasotpe o Tam-tzopon, que se traduce textualmente como "Lugar donde gotea</p>
+
+<div class="rating">★★★☆☆</div>
+
+</div>
+
+</div>
+
+<div class="photo-card">
+
+<img src="Doportivo.jpg" alt="Imagen 3">
+
+<div class="photo-info">
+
+<h3>" Porsche Boxster"</h3>
+
+<p>Nunca lo habia Visto en mi vida, genial</p>
+
+<div class="rating">★★★★★</div>
+
+</div>
+
+</div>
+
+<div class="photo-card">
+
+<img src="Airoman.jpg" alt="Imagen 3">
+
+<div class="photo-info">
+
+<h3>"Airo Man"</h3>
+
+<p>Museo de seda, en el parque Fundidora</p>
+
+<div class="rating">★★★★★</div>
+
+</div>
+
+</section>
+
+<section id="sobre">
+
+<div class="panel">
+
+<h2>Sobre mí</h2>
+
+<p>
+
+Soy un chico que le encanta la tecnologia, desea tener equipos de TI
+Por ejemplo Fire wall,Swiches,Camras IP y un Servidor pequeño siempre escojere
+El Azul metalico, Ingeneria en Sistemas
+
+</p>
+
+</div>
+
+</section>
+
+<section id="redes">
+
+<div class="panel">
+
+<h2>Redes Sociales</h2>
+
+<div class="socials">
+
+<a class="social" href="https://www.facebook.com/share/1ESNuSaTSU/" target="_blank">Facebook</a>
+
+<a class="social" href="https://www.instagram.com/jorgeeduardo.45?igsh=eG5vOTE3djVkY2U1" target="_blank">Instagram</a>
+
+<a class="social" href="https://wa.me/qr/F73GNMITGTE6K1" target="_blank">WhatsApp</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 - Mi Portafolio
+
+</footer>
+
+<script>
+
+/*===========================
+PARTICULAS
+===========================*/
+
+const bg=document.getElementById("bg");
+
+for(let i=0;i<70;i++){
+
+let c=document.createElement("div");
+
+c.className="circle";
+
+let s=Math.random()*80+10;
+
+c.style.width=s+"px";
+
+c.style.height=s+"px";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.animationDuration=10+Math.random()*20+"s";
+
+c.style.animationDelay=Math.random()*20+"s";
+
+bg.appendChild(c);
+
+}
+
+</script>
+
+</body>
+</html>
